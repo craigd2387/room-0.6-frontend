@@ -15,7 +15,7 @@ module.exports.getemployees = async function (): Promise<Employee[]> {
     }
 }
 
-module.exports.getEmployeeById = async function (id: number): Promise<Employee[]> {
+module.exports.getDeliveryEmployeeById = async function (id: number): Promise<Employee[]> {
     try {
         
         const response = await axios.get('http://localhost:8080/api/deliveryEmployees/' + id)
