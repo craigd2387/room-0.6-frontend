@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employees</title>
+    <title>Delete Employees</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Employees</h1>
+                    <h1>Delete Employees</h1>
                     
                 </div>
             </div>
@@ -25,32 +25,32 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Salary</th>
-                            <th scope="col">Bank Account</th>
-                            <th scope="col">NI number</th>          
-                            
+                            <th scope="col">Name</th>  
+                            <th scope="col"></th>                               
                         </tr>
                     </thead>
                     <tbody>
                         {% for employee in employees %}
+                        
                         <tr>
                             <td>{{ employee.name }}</td>
-                            <td>{{ employee.salary }}</td>                
-                            <td>{{ employee.bank_account_number }}</td>                
-                            <td>{{ employee.national_insurance_number }}</td> 
-                            <td><a href='updateEmployee/{{ employee.employee_id }}'>Update</a></td>
+                            <td>
+                                <form action="/delete-delivery-employee/{{ employee.employee_id }}" method="post">
+                                    <input type="hidden" step="any" id="employee.employee_id" name="employee.employee_id" class="form-control" value="{{ employee.employee_id }}" required>
+                                    <button type="submit" class="btn btn-danger" value="{{ employee.employee_id }}" >Delete</button>
+                                </form>
+                            </td>
                             
-
+                          
                         </tr>
                         {% endfor %}
                     </tbody>
+            
                 </table>
                 {% else %}
                 There are no orders.
                 {% endif %}
             </section>
-
     </main>
 </body>
 </html>
