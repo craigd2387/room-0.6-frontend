@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UFT-8">
+        <title>Add Delivery Employee Bank Account Number</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <header class="bg-dark text-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Add Delivery Employee Bank Account Number</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container mt-4">
+            <section id="form" class="bg-light py-5">
+                <div class="container">
+                    <p>Enter Details:</p>
+                    <form action="/add-delivery-employee-bank-account-number" method="post">
+                        <div class="form-group">
+                            <label for="bank-account-number">Bank Account Number</label>
+                            <input type="text" id="bank_account_number" name="bank_account_number" class="form-control" value="{{ bank_account_number }}" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Next</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
