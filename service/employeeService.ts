@@ -43,3 +43,27 @@ module.exports.createEmployee = async function (employee:Employee): Promise<numb
         throw new Error ('Could not create Employee')
     }
 }
+
+module.exports.getDeliveryEmployeeById = async function (id: number): Promise<Employee[]> {
+    try {
+        
+        const response = await axios.get('http://localhost:8080/api/deliveryEmployees/' + id)
+        
+        return response.data
+    } catch (e) {
+        
+        throw new Error('Could not get Employee')
+    }    
+}
+
+module.exports.getDeliveryEmployeeById = async function (id: number): Promise<Employee[]> {
+    try {
+        
+        const response = await axios.get('http://localhost:8080/api/deliveryEmployees/' + id)
+        
+        return response.data
+    } catch (e) {
+        
+        throw new Error('Could not get Employee')
+    }    
+}

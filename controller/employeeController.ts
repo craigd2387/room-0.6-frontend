@@ -1,5 +1,6 @@
 import { Application, Request, Response } from "express";
 import { Employee } from "../model/employee"
+import { log } from "console";
 
 const employeeService = require('../service/employeeService')
 
@@ -10,7 +11,7 @@ module.exports = function(app: Application){
 
         try {
             data = await employeeService.getemployees()
-            res.render('employees', { employees: data } )
+            res.render('delivery-employees', { employees: data } )          
             
         }catch (e) {
             console.error(e);
@@ -18,6 +19,23 @@ module.exports = function(app: Application){
         
         
     })
+
+    app.get('/delivery-employee/:id', async (req: Request, res: Response) => {
+        let data: Employee;
+
+        try {
+            data = await employeeService.getDeliveryEmployeeById(req.params.id)
+        
+        
+            res.render('delivery-employee', { employees: data } )
+        }catch (e) {
+            
+            res.render('delivery-employee', { employees: data } )
+        }   
+        
+    })
+
+    
 
     app.get('/add-delivery-employee-name', async (req: Request, res: Response) => {
         if (!req.session.employee){

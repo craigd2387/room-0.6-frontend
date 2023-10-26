@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeliveryEmployees</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Employee Details</h1>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container mt-4">
+
+        <section id="orders" class="mt-4">
+{% if employees %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Salary</th>
+                        <th scope="col">Bank Account</th>
+                        <th scope="col">NI number</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>{{ employees.name }}</td>
+                        <td>{{ employees.salary }}</td>
+                        <td>{{ employees.bank_account_number }}</td>
+                        <td>{{ employees.national_insurance_number }}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            {% else %}
+            No emmployee data
+            {% endif %}
+        </section>
+
+    </main>
+</body>
+
+</html>
