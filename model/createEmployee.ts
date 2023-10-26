@@ -1,5 +1,5 @@
-export class Employee {
-    employeeId?: number
+export class CreateEmployee {
+    
     name?: String
     salary?: number
     bank_account_number?: String
