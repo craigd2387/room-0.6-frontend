@@ -1,5 +1,6 @@
 import { Application, Request, Response, } from "express";
 import { Employee } from "./model/employee";
+import { CreateEmployee } from "./model/createEmployee";
 
 
 const express = require('express');
@@ -34,7 +35,7 @@ app.use(session({ secret: 'NOT HARDCODED SECRET', cookie: { maxAge:60000}}));
 
 declare module "express-session" {
     interface SessionData {
-        employee: Employee;
+        employee: CreateEmployee;
         token: string
     }
 

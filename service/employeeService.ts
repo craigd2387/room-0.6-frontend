@@ -1,5 +1,6 @@
 import { Employee } from "../model/employee"
-
+import { CreateEmployee } from "../model/createEmployee";
+import  createEmployeeValidator = require("../validator/createEmployeeValidator")
 const axios = require('axios');
 
 module.exports.getemployees = async function (): Promise<Employee[]> {
@@ -27,13 +28,13 @@ module.exports.getEmployeetByID = async function (id: number): Promise<Employee>
     
 }
 
-module.exports.createEmployee = async function (employee:Employee): Promise<number> {
+module.exports.createEmployee = async function (employee:CreateEmployee): Promise<number> {
 
-    //const error: string = productValidator.validateProduct(product)
+    const error: string = createEmployeeValidator.validateEmployee(employee)
 
-    //if(error){
-      //  throw new Error(error)
-    //}
+    if(error){
+        throw new Error(error)
+}
     try{
         const response= await axios.post('http://localhost:8080/api/deliveryEmployees/', employee)
 
@@ -56,14 +57,3 @@ module.exports.getDeliveryEmployeeById = async function (id: number): Promise<Em
     }    
 }
 
-module.exports.getDeliveryEmployeeById = async function (id: number): Promise<Employee[]> {
-    try {
-        
-        const response = await axios.get('http://localhost:8080/api/deliveryEmployees/' + id)
-        
-        return response.data
-    } catch (e) {
-        
-        throw new Error('Could not get Employee')
-    }    
-}

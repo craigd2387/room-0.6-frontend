@@ -1,6 +1,7 @@
 import { Application, Request, Response } from "express";
 import { Employee } from "../model/employee"
 import { log } from "console";
+import { CreateEmployee } from "../model/createEmployee";
 
 const employeeService = require('../service/employeeService')
 
@@ -89,7 +90,7 @@ module.exports = function(app: Application){
     })
 
     app.post('/add-delivery-employee-confirmation', async (req: Request, res: Response) => {
-        let data: Employee = req.session.employee
+        let data: CreateEmployee = req.session.employee
         let id: Number
 
         try{
