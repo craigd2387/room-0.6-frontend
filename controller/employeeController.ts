@@ -18,4 +18,19 @@ module.exports = function(app: Application){
         
         
     })
+
+    app.get('/employees/:id', async (req: Request, res: Response) => {
+        let data: Employee[];
+
+        try {
+            data = await employeeService.getEmployeeById(req.params.id)
+            res.render('delivery-employee', { employees: data } )
+            console.log(data);
+            
+            
+        }catch (e) {
+            console.error(e);
+        }        
+        
+    })
 }

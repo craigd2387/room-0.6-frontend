@@ -14,3 +14,15 @@ module.exports.getemployees = async function (): Promise<Employee[]> {
         throw new Error('Could not get orders')
     }
 }
+
+module.exports.getEmployeeById = async function (id: number): Promise<Employee[]> {
+    try {
+        
+        const response = await axios.get('http://localhost:8080/api/deliveryEmployees/' + id)
+        
+        return response.data
+    } catch (e) {
+        
+        throw new Error('Could not get Employee')
+    }    
+}
